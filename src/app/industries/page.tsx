@@ -17,21 +17,21 @@ export default function IndustriesPage() {
     {
       title: "Stock Exchange",
       description: "Market-grade solutions for brokers, exchanges, and regulatory compliant trading.",
-      image: "/assets/images/content/machine.png",
+      image: "/assets/images/content/stock-exchange.jpg",
       link: "/industries/stock-exchange",
       features: ["Matching Engines", "Surveillance Dashboards", "Market Data Feeds", "Regulatory Reporting"]
     },
     {
       title: "Algo Trading",
       description: "Low-latency algorithmic trading platforms with automated strategy orchestration.",
-      image: "/assets/images/content/machine.png",
+      image: "/assets/images/content/algo-trading.jpg",
       link: "/industries/algo-trading",
       features: ["Strategy Backtesting", "Co-location Support", "Risk Guardrails", "Real-time Analytics"]
     },
     {
       title: "Crypto Currency",
       description: "Secure digital asset infrastructure for exchanges, wallets, and DeFi products.",
-      image: "/assets/images/content/machine.png",
+      image: "/assets/images/content/crypto-currency.webp",
       link: "/industries/crypto-currency",
       features: ["Wallet Management", "KYC / AML Workflows", "Cold Storage Integrations", "DeFi Connectivity"]
     }
