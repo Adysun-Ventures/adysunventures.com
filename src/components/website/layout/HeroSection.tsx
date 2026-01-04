@@ -1,4 +1,6 @@
-import React from 'react';
+"use client";
+
+import React, { useRef, useEffect } from 'react';
 import Button from '../ui/Button';
 import { Cloud, Brain, Shield, Zap } from 'lucide-react';
 
@@ -25,8 +27,32 @@ export default function HeroSection({
   actions = [],
   className = '' 
 }: HeroSectionProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const isVideo = variant === 'image' && backgroundImage 
+    ? (backgroundImage.endsWith('.mp4') || backgroundImage.endsWith('.webm') || backgroundImage.endsWith('.ogg'))
+    : false;
+  
+  useEffect(() => {
+    if (isVideo && videoRef.current) {
+      const video = videoRef.current;
+      // Ensure video plays on both desktop and mobile
+      const playPromise = video.play();
+      
+      // If play() returns a promise, handle any errors
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            // Video is playing successfully
+          })
+          .catch((error) => {
+            // Autoplay was prevented, try again after user interaction
+            console.log('Video autoplay prevented:', error);
+          });
+      }
+    }
+  }, [isVideo, backgroundImage]);
+  
   if (variant === 'image' && backgroundImage) {
-    const isVideo = backgroundImage.endsWith('.mp4') || backgroundImage.endsWith('.webm') || backgroundImage.endsWith('.ogg');
     
     return (
       <section 
@@ -41,11 +67,13 @@ export default function HeroSection({
       >
         {isVideo ? (
           <video
+            ref={videoRef}
             className="absolute top-0 left-0 w-full h-full object-cover"
             autoPlay
             loop
             muted
             playsInline
+            preload="auto"
             aria-hidden="true"
           >
             <source src={backgroundImage} type="video/mp4" />
