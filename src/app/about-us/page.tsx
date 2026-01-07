@@ -341,7 +341,7 @@ export default function AboutUsPage() {
               </div>
             </div>
             
-            <div className="bg-white rounded-2xl p-8 shadow-xl">
+            {/* <div className="bg-white rounded-2xl p-8 shadow-xl">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center mr-4">
                   <Phone className="w-6 h-6 text-white" />
@@ -359,7 +359,7 @@ export default function AboutUsPage() {
                 </div>
                 <p className="text-gray-500 text-sm">Closed on Sundays & National Holidays</p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

@@ -217,7 +217,7 @@ export default function Footer() {
                 </div>
 
                 {/* Contact Number Section */}
-                <div>
+                {/* <div>
                   <h6 className="text-orange-500 mb-3 font-semibold flex items-center">
                     <Phone className="w-4 h-4 mr-2 text-orange-500" />
                     Contact Number
@@ -238,7 +238,7 @@ export default function Footer() {
                       <span className="text-white text-sm">Closed on Sundays & National Holidays</span>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

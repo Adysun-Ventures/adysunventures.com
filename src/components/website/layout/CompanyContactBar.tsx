@@ -112,10 +112,10 @@ export default function CompanyContactBar({
 
           {/* Middle: Contact */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6 gap-2">
-            <a href={phone.href} className={`flex items-center gap-2 ${baseText} hover:opacity-80 transition-opacity`}>
+            {/* <a href={phone.href} className={`flex items-center gap-2 ${baseText} hover:opacity-80 transition-opacity`}>
               <Phone className="w-4 h-4" />
               <span className="text-sm font-medium">{phone.label}</span>
-            </a>
+            </a> */}
             <a href={email.href} className={`flex items-center gap-2 ${baseText} hover:opacity-80 transition-opacity`}>
               <Mail className="w-4 h-4" />
               <span className="text-sm font-medium">{email.label}</span>

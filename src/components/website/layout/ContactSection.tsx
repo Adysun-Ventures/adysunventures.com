@@ -81,17 +81,17 @@ export default function ContactSection({
         </div>
       )
     },
-    {
-      title: 'Phone',
-      icon: <Phone className="w-5 h-5" />,
-      content: (
-        <div>
-          <p className="text-lg font-semibold">+91 9579537523</p>
-          <p>Mon-Sat: 10:00 AM - 6:00 PM</p>
-          <p>Closed on Sundays & National Holidays</p>
-        </div>
-      )
-    }
+    // {
+    //   title: 'Phone',
+    //   icon: <Phone className="w-5 h-5" />,
+    //   content: (
+    //     <div>
+    //       <p className="text-lg font-semibold">+91 9579537523</p>
+    //       <p>Mon-Sat: 10:00 AM - 6:00 PM</p>
+    //       <p>Closed on Sundays & National Holidays</p>
+    //     </div>
+    //   )
+    // }
   ];
 
   const contactData = contacts || defaultContacts;
