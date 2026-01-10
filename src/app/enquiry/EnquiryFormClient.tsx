@@ -9,6 +9,7 @@ import Link from "next/link";
 import SocialMediaLinks from "@/components/ui/SocialMediaLinks";
 import { FiArrowRight, FiExternalLink, FiUserPlus } from "react-icons/fi";
 import { COMPANY_LINKS } from "@/constants/companyLinks";
+import Navigation from "@/components/website/layout/Navigation";
 
 interface EnquiryFormData {
   name: string;
@@ -50,6 +51,40 @@ const EnquiryHeader = () => {
         </div>
       </div>
     </header>
+  );
+};
+
+// Google Form embed component
+type EnquiryGoogleFormProps = {
+  formUrl?: string;
+  height?: number;
+};
+export const EnquiryGoogleForm = ({
+  formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfEXAMPLE/viewform?embedded=true",
+  height,
+}: EnquiryGoogleFormProps) => {
+  // If height is not provided, fill most of the viewport (leaving space for header/footer)
+  const iframeHeight = height ? `${height}px` : "calc(100vh - 200px)";
+
+  return (
+    
+
+            <div className="w-full overflow-hidden">
+              <iframe
+                src={formUrl}
+                width="100%"
+                style={{ height: iframeHeight, border: 0, overflow: "hidden" }}
+                frameBorder={0}
+                marginHeight={0}
+                marginWidth={0}
+                scrolling="no"
+                className="w-full"
+                title="Enquiry Google Form"
+              >
+                Loading…
+              </iframe>
+            </div>
+          
   );
 };
 
@@ -184,7 +219,17 @@ const EnquiryFooter = () => {
   );
 };
 
-export default function EnquirySubmitPage() {
+type EnquiryFormClientProps = {
+  useGoogleForm?: boolean;
+  formUrl?: string;
+  height?: number;
+};
+
+export default function EnquirySubmitPage({
+  useGoogleForm = false,
+  formUrl,
+  height,
+}: EnquiryFormClientProps) {
   const [formData, setFormData] = useState<EnquiryFormData>({
     name: "",
     mobile: "",
@@ -471,6 +516,24 @@ export default function EnquirySubmitPage() {
     }
   };
 
+  // If page should use Google Form embed, render header + google form + footer
+  if (useGoogleForm) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex flex-col">
+        <Navigation />
+        <div className="flex-1 flex items-center justify-center py-24 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl w-full">
+            <EnquiryGoogleForm
+              formUrl={formUrl}
+              height={height ?? 900}
+            />
+          </div>
+        </div>
+        <EnquiryFooter />
+      </div>
+    );
+  }
+
   if (success) {
     return (
       <>
@@ -534,7 +597,7 @@ export default function EnquirySubmitPage() {
           }
         `}</style>
         <div className="min-h-screen bg-gray-50 flex flex-col">
-          <EnquiryHeader />
+          <Navigation />
           <div className="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl w-full">
               <div className="bg-white rounded-xl shadow-lg p-8 text-center fade-in-up">
@@ -625,7 +688,7 @@ export default function EnquirySubmitPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      <EnquiryHeader />
+      <Navigation />
       <div className="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl w-full">
           <div className="text-center mb-8">

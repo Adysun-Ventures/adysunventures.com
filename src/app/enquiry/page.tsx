@@ -39,5 +39,11 @@ export const metadata: Metadata = {
 };
 
 export default function EnquiryPage() {
-  return <EnquiryFormClient />;
+  return (
+    <EnquiryFormClient
+      useGoogleForm
+      formUrl="https://docs.google.com/forms/d/e/1FAIpQLSeAUrMrLSeLhItVXcMeI_8S9b8ixCeqxTN-a4k1r27ib_g2Sg/viewform?embedded=true"
+      height={1610}
+    />
+  );
 }
