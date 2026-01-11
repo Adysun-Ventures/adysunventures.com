@@ -10,6 +10,7 @@ interface PageHeroProps {
     isActive?: boolean;
   }>;
   className?: string;
+  marginTop?: string;
 }
 
 export default function PageHero({
@@ -17,10 +18,11 @@ export default function PageHero({
   titleHighlight,
   description,
   breadcrumbs = [],
-  className = ''
+  className = '',
+  marginTop = ''
 }: PageHeroProps) {
   return (
-    <section className={`relative bg-gradient-to-br from-orange-50 via-orange-100 to-orange-200 py-16 ${className}`}>
+    <section className={`relative bg-gradient-to-br from-orange-50 via-orange-100 to-orange-200 py-16 ${className} `}>
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-white bg-opacity-60"></div>
       <div className="absolute inset-0 bg-gradient-to-r from-orange-300/30 to-transparent"></div>

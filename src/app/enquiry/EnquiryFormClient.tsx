@@ -130,7 +130,7 @@ export const EnquiryGoogleForm = ({
   }, [mobileHeight, desktopHeight, offset]);
 
   return (
-    <div className="w-full">
+    <div id="enquiry-form" tabIndex={-1} className="w-full">
       <iframe
         src={formUrl}
         width="100%"
