@@ -43,7 +43,8 @@ export default function EnquiryPage() {
     <EnquiryFormClient
       useGoogleForm
       formUrl="https://docs.google.com/forms/d/e/1FAIpQLSeAUrMrLSeLhItVXcMeI_8S9b8ixCeqxTN-a4k1r27ib_g2Sg/viewform?embedded=true"
-      height={1610}
+      mobileHeight={1140}
+      desktopHeight={0}
     />
   );
 }

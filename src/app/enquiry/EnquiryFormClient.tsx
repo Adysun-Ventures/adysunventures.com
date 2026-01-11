@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/firebase/config";
 import { validatePANFormat, checkPANExistsAnywhere } from "@/utils/firebaseUtils";
@@ -57,34 +57,96 @@ const EnquiryHeader = () => {
 // Google Form embed component
 type EnquiryGoogleFormProps = {
   formUrl?: string;
-  height?: number;
+  mobileHeight?: number; // px for mobile (<=768px)
+  desktopHeight?: number; // px for desktop (>768px). If 0, use calc with offset
+  offset?: number; // offset in px to subtract from viewport when desktopHeight not provided
 };
+
 export const EnquiryGoogleForm = ({
   formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfEXAMPLE/viewform?embedded=true",
-  height,
+  mobileHeight,
+  desktopHeight,
+  offset = 200,
 }: EnquiryGoogleFormProps) => {
-  // If height is not provided, fill most of the viewport (leaving space for header/footer)
-  const iframeHeight = height ? `${height}px` : "calc(100vh - 200px)";
+  // set --vh to handle mobile browser chrome correctly
+  useEffect(() => {
+    const setVh = () => {
+      document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
+    };
+    setVh();
+    window.addEventListener("resize", setVh, { passive: true });
+    window.addEventListener("orientationchange", setVh);
+    return () => {
+      window.removeEventListener("resize", setVh);
+      window.removeEventListener("orientationchange", setVh);
+    };
+  }, []);
+
+  // compute iframe height depending on viewport (fallback)
+  const defaultMobileHeight = 1610;
+  let iframeHeight = `calc(var(--vh) * 100 - ${offset}px)`;
+  if (typeof window !== "undefined") {
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      iframeHeight = `${mobileHeight ?? defaultMobileHeight}px`;
+    } else {
+      iframeHeight =
+        typeof desktopHeight === "number" && desktopHeight > 0
+          ? `${desktopHeight}px`
+          : `calc(var(--vh) * 100 - ${offset}px)`;
+    }
+  }
+
+  // measured height state to compute exact available space (header/footer)
+  const [measuredHeight, setMeasuredHeight] = useState<string | null>(null);
+
+  useEffect(() => {
+    const compute = () => {
+      if (typeof window === "undefined") return;
+      const isMobile = window.innerWidth <= 768;
+      if (isMobile) {
+        setMeasuredHeight(`${mobileHeight ?? defaultMobileHeight}px`);
+        return;
+      }
+      if (typeof desktopHeight === "number" && desktopHeight > 0) {
+        setMeasuredHeight(`${desktopHeight}px`);
+        return;
+      }
+      const navEl = document.querySelector(".navigation-container") as HTMLElement | null;
+      const footerEl = document.querySelector("#footer") as HTMLElement | null;
+      const navH = navEl ? navEl.offsetHeight : 0;
+      const footH = footerEl ? footerEl.offsetHeight : 0;
+      const available = Math.max(300, window.innerHeight - navH - footH - 32);
+      setMeasuredHeight(`${available}px`);
+    };
+
+    compute();
+    window.addEventListener("resize", compute, { passive: true });
+    window.addEventListener("orientationchange", compute);
+    return () => {
+      window.removeEventListener("resize", compute);
+      window.removeEventListener("orientationchange", compute);
+    };
+  }, [mobileHeight, desktopHeight, offset]);
 
   return (
-    
-
-            <div className="w-full overflow-hidden">
-              <iframe
-                src={formUrl}
-                width="100%"
-                style={{ height: iframeHeight, border: 0, overflow: "hidden" }}
-                frameBorder={0}
-                marginHeight={0}
-                marginWidth={0}
-                scrolling="no"
-                className="w-full"
-                title="Enquiry Google Form"
-              >
-                Loading…
-              </iframe>
-            </div>
-          
+    <div className="w-full">
+      <iframe
+        src={formUrl}
+        width="100%"
+        style={{
+          height: measuredHeight ?? iframeHeight,
+          border: 0,
+          overflow: "auto",
+          WebkitOverflowScrolling: "touch",
+        }}
+        frameBorder={0}
+        marginHeight={0}
+        marginWidth={0}
+        className="w-full"
+        title="Enquiry Google Form"
+      />
+    </div>
   );
 };
 
@@ -222,13 +284,19 @@ const EnquiryFooter = () => {
 type EnquiryFormClientProps = {
   useGoogleForm?: boolean;
   formUrl?: string;
+  // legacy single height prop (treated as mobileHeight for backward compatibility)
   height?: number;
+  // explicit controls
+  mobileHeight?: number;
+  desktopHeight?: number;
 };
 
 export default function EnquirySubmitPage({
   useGoogleForm = false,
   formUrl,
   height,
+  mobileHeight,
+  desktopHeight,
 }: EnquiryFormClientProps) {
   const [formData, setFormData] = useState<EnquiryFormData>({
     name: "",
@@ -521,11 +589,13 @@ export default function EnquirySubmitPage({
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col">
         <Navigation />
-        <div className="flex-1 flex items-center justify-center py-24 px-4 sm:px-6 lg:px-8">
+        <div className="flex-1 flex items-center justify-center pt-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl w-full">
             <EnquiryGoogleForm
               formUrl={formUrl}
-              height={height ?? 900}
+              mobileHeight={mobileHeight ?? height ?? 1610}
+              desktopHeight={desktopHeight ?? 0}
+              offset={200}
             />
           </div>
         </div>
