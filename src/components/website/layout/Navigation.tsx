@@ -140,7 +140,7 @@ export default function Navigation({ className = '' }: NavigationProps) {
           </Link>
 
                     {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-6 min-w-0 flex-wrap">
             {/* Home */}
             <Link
               href="/"

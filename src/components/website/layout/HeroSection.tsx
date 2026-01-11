@@ -56,11 +56,10 @@ export default function HeroSection({
     
     return (
       <section 
-        className={`relative w-screen h-screen overflow-hidden ${className}`}
+        className={`relative w-full h-screen overflow-hidden ${className}`}
         style={{
           backgroundColor: 'rgb(10, 10, 10)',
-          minHeight: '100vh',
-          width: '99vw'
+          minHeight: '100vh'
         }}
         role="img"
         aria-label="Adysun Ventures hero section background"
