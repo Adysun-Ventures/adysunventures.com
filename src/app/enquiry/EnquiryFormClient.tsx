@@ -10,6 +10,7 @@ import SocialMediaLinks from "@/components/ui/SocialMediaLinks";
 import { FiArrowRight, FiExternalLink, FiUserPlus } from "react-icons/fi";
 import { COMPANY_LINKS } from "@/constants/companyLinks";
 import Navigation from "@/components/website/layout/Navigation";
+import Footer from "@/components/website/Footer";
 
 interface EnquiryFormData {
   name: string;
@@ -599,7 +600,7 @@ export default function EnquirySubmitPage({
             />
           </div>
         </div>
-        <EnquiryFooter />
+        
       </div>
     );
   }
@@ -750,7 +751,7 @@ export default function EnquirySubmitPage({
             </div>
           </div>
         </div>
-        <EnquiryFooter />
+        <Footer/>
       </div>
       </>
     );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import EnquiryFormClient from "./EnquiryFormClient";
 import PageHero from "@/components/website/ui/PageHero";
 import { enquiryMetaConfig } from "./metaConfig";
+import Footer from "@/components/website/Footer";
 
 const { title, description, keywords, canonical, image } = enquiryMetaConfig;
 
@@ -59,6 +60,7 @@ export default function EnquiryPage() {
         mobileHeight={1140}
         desktopHeight={0}
       />
+      <Footer/>
     </>
   );
 }
