@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // GitHub Pages configuration
+  output: 'export',
+  basePath: '/adysunventures.com',
+  assetPrefix: '/adysunventures.com/',
+
   trailingSlash: true,
   images: {
     domains: [
@@ -19,7 +24,7 @@ const nextConfig = {
   },
   // We need to disable strict mode to avoid double rendering in development
   reactStrictMode: false,
-  
+
   // Since we're exporting static files, we can't use rewrites
   // Uncomment this if you don't need the rewrites functionality
   /*
