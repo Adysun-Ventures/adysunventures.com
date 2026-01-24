@@ -2,8 +2,6 @@
 const nextConfig = {
   // GitHub Pages configuration
   output: 'export',
-  basePath: '/adysunventures.com',
-  assetPrefix: '/adysunventures.com/',
 
   trailingSlash: true,
   images: {
