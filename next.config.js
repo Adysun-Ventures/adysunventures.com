@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // GitHub Pages configuration for custom domain
+  // GitHub Pages configuration
   output: 'export',
+  basePath: '/adysunventures.com',
+  assetPrefix: '/adysunventures.com/',
 
   trailingSlash: true,
   images: {
