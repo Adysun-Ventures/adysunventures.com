@@ -9,8 +9,9 @@
  *   <img src={assetPath('/assets/images/logo.png')} />
  */
 
-// Hardcode basePath for GitHub Pages (env var is undefined at build time)
-const basePath = '/adysunventures.com';
+// No basePath for root deployment. When serving from site root (adysunventures.com)
+// asset URLs should be served from the root (e.g. /assets/...). Keep basePath empty.
+const basePath = '';
 
 /**
  * Converts a relative asset path to an absolute path with basePath prefix

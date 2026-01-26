@@ -1,20 +1,10 @@
 import type { NextConfig } from "next";
 
-// GitHub Pages base path (repository name)
-const basePath = '/adysunventures.com';
-
 const nextConfig: NextConfig = {
-  /* config options here */
-  // Static export configuration for GitHub Pages
+  // Static export configuration for GitHub Pages (deployed at root)
   output: 'export', // Required for GitHub Pages static deployment
-  basePath: basePath, // For GitHub Pages deployment - adds /adysunventures.com to all paths
-  assetPrefix: basePath, // For GitHub Pages deployment - ensures assets load from correct path
+  // Do NOT set basePath/assetPrefix when deploying the site at the domain root.
   trailingSlash: true, // Makes URLs end with a slash for better compatibility with static hosting
-
-  // Expose basePath to client-side code
-  env: {
-    NEXT_PUBLIC_BASE_PATH: basePath,
-  },
 
   // Webpack configuration to handle chunking issues
   webpack: (config, { isServer }) => {

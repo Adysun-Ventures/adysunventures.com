@@ -20,8 +20,8 @@ const nextConfig = {
   images: {
     unoptimized: process.env.STATIC_EXPORT === 'true',
   },
-  // Base path only needed for static hosting (e.g., GitHub Pages)
-  basePath: process.env.STATIC_EXPORT === 'true' ? '/Employee_Admin_Dashboard' : '',
+  // Base path not used for root deployment on GitHub Pages
+  basePath: '',
   // Trailing slash only needed for static hosting
   trailingSlash: process.env.STATIC_EXPORT === 'true',
   // Disable strict mode to enable more compatibility options

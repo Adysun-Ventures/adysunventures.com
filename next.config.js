@@ -1,10 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // GitHub Pages configuration
+  // GitHub Pages configuration (deployed at root)
   output: 'export',
-  basePath: '/adysunventures.com',
-  assetPrefix: '/adysunventures.com/',
-
+  // Do NOT set basePath/assetPrefix when deploying at the root domain.
   trailingSlash: true,
   images: {
     domains: [
