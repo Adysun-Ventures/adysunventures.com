@@ -9,8 +9,8 @@
  *   <img src={assetPath('/assets/images/logo.png')} />
  */
 
-// Get basePath from environment variable set in next.config.ts
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+// Hardcode basePath for GitHub Pages (env var is undefined at build time)
+const basePath = '/adysunventures.com';
 
 /**
  * Converts a relative asset path to an absolute path with basePath prefix

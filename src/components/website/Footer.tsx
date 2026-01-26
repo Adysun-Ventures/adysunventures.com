@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { GoogleMapsButton, GoogleSearchButton } from '../ui/HollowButton';
 import CompanyContactBar from './layout/CompanyContactBar';
+import { assetPath } from '@/lib/assetPath';
 
 export default function Footer() {
   const pathname = usePathname();
@@ -24,7 +25,7 @@ export default function Footer() {
     return pathname.startsWith(href);
   };
 
-  // Function to get link classes based on active state
+  // Function to get link classes based on active state 
   const getLinkClasses = (href: string) => {
     const baseClasses = "flex items-center transition-colors duration-300";
     const activeClasses = "text-orange-400 hover:text-orange-300";
@@ -44,7 +45,7 @@ export default function Footer() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/assets/images/bg/landing_bg.jpg')",
+          backgroundImage: `url('${assetPath('/assets/images/bg/landing_bg.jpg')}')`,
         }}
       >
         <div className="absolute inset-0 bg-gray-900/90"></div>
