@@ -4,6 +4,7 @@ import PageHero from '@/components/website/ui/PageHero';
 import BenefitCard from '@/components/website/BenefitCard';
 import CTAButton from '@/components/website/CTAButton';
 import { TrendingUp, Target, Zap, ShoppingCart, CreditCard, Package, BarChart3 } from 'lucide-react';
+import { assetPath } from '@/lib/assetPath';
 
 export default function ECommercePage() {
   // E-commerce solutions
@@ -79,7 +80,7 @@ export default function ECommercePage() {
   ];
 
   return (
-    <WebsiteLayout 
+    <WebsiteLayout
       title="E-Commerce Solutions - Smart Retail Operations and Customer Experience"
       description="Adysun Ventures provides comprehensive e-commerce solutions including online store development, payment integration, inventory management, and customer analytics for modern retail businesses."
     >
@@ -111,9 +112,9 @@ export default function ECommercePage() {
             </div>
             <div className="text-center">
               <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl shadow-lg border border-orange-200">
-                <img 
-                  src="/assets/images/content/eCommerce.png" 
-                  alt="E-Commerce Solutions" 
+                <img
+                  src={assetPath("/assets/images/content/eCommerce.png")}
+                  alt="E-Commerce Solutions"
                   className="w-full max-w-md mx-auto rounded-lg shadow-xl"
                 />
               </div>
@@ -139,7 +140,7 @@ export default function ECommercePage() {
               <div key={index} className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-orange-200">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{solution.title}</h3>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">{solution.description}</p>
-                
+
                 <div className="mb-6">
                   <h4 className="font-semibold text-gray-800 mb-3 text-lg">Key Features:</h4>
                   <ul className="space-y-3">
@@ -238,7 +239,7 @@ export default function ECommercePage() {
 
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-r from-orange-100/90 to-orange-200/90 text-gray-800 relative"
-               style={{ backgroundImage: 'url(/assets/images/bg/whyChoose.png)' }}>
+        style={{ backgroundImage: `url(${assetPath('/assets/images/bg/whyChoose.png')})` }}>
         <div className="absolute inset-0 bg-gradient-to-r from-orange-100/90 to-orange-200/90"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-16">
@@ -249,7 +250,7 @@ export default function ECommercePage() {
               Let's discuss how our e-commerce solutions can drive your business growth and digital transformation.
             </p>
           </div>
-          
+
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <CTAButton href="/contact-us" variant="primary">
               Get Free Consultation

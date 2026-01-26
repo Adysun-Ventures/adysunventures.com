@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
   assetPrefix: basePath, // For GitHub Pages deployment - ensures assets load from correct path
   trailingSlash: true, // Makes URLs end with a slash for better compatibility with static hosting
 
+  // Expose basePath to client-side code
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
+
   // Webpack configuration to handle chunking issues
   webpack: (config, { isServer }) => {
     // Optimize chunk splitting

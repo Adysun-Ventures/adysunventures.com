@@ -2,6 +2,7 @@ import React from 'react';
 import WebsiteLayout from '@/components/website/WebsiteLayout';
 import PageHero from '@/components/website/ui/PageHero';
 import { Zap, BarChart3, TrendingUp, Building, DollarSign, Shield, Globe, Lock } from 'lucide-react';
+import { assetPath } from '@/lib/assetPath';
 
 export default function AlgoTradingPage() {
   // Algorithmic trading solutions
@@ -34,7 +35,7 @@ export default function AlgoTradingPage() {
   ];
 
   return (
-    <WebsiteLayout 
+    <WebsiteLayout
       title="Algorithmic Trading Solutions - Advanced Trading Algorithms and Quantitative Finance Technology"
       description="Adysun Ventures provides cutting-edge algorithmic trading solutions including strategy development platforms, quantitative analysis tools, execution management systems, and risk management for algorithmic trading."
     >
@@ -64,9 +65,9 @@ export default function AlgoTradingPage() {
               </p>
             </div>
             <div className="text-center">
-              <img 
-                src="/assets/images/content/machine.png" 
-                alt="Financial Technology Solutions" 
+              <img
+                src={assetPath("/assets/images/content/machine.png")}
+                alt="Financial Technology Solutions"
                 className="w-full max-w-md mx-auto rounded-lg shadow-2xl"
               />
             </div>
@@ -91,7 +92,7 @@ export default function AlgoTradingPage() {
               <div key={index} className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{solution.title}</h3>
                 <p className="text-gray-600 mb-6">{solution.description}</p>
-                
+
                 <div className="mb-6">
                   <h4 className="font-semibold text-gray-800 mb-3">Key Features:</h4>
                   <ul className="space-y-2">
@@ -305,13 +306,13 @@ export default function AlgoTradingPage() {
             Let's discuss how our algorithmic trading solutions can drive your quantitative trading success and market performance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
+            <a
               href="/contact-us"
               className="bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors"
             >
               Get Free Consultation
             </a>
-            <a 
+            <a
               href="/services"
               className="border-2 border-orange-600 text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 hover:text-white transition-colors"
             >

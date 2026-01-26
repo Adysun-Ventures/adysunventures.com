@@ -6,16 +6,17 @@ import CTAButton from '@/components/website/CTAButton';
 import ContactCard from '@/components/website/content/ContactCard';
 import ContactSection from '@/components/website/layout/ContactSection';
 import CTASection from '@/components/website/layout/CTASection';
-import { 
-  Briefcase, 
-  Mail, 
-  Clock, 
-  Globe, 
+import {
+  Briefcase,
+  Mail,
+  Clock,
+  Globe,
   Check,
   MapPin,
   Phone,
   ArrowRight
 } from 'lucide-react';
+import { assetPath } from '@/lib/assetPath';
 
 export default function ContactUsPage() {
 
@@ -59,22 +60,22 @@ export default function ContactUsPage() {
 
   // Statistics for CounterSection
   const statistics = [
-            { icon: <Briefcase />, value: "150+", label: "Total Projects" },
-        { icon: <Mail />, value: "75+", label: "Happy Clients" },
+    { icon: <Briefcase />, value: "150+", label: "Total Projects" },
+    { icon: <Mail />, value: "75+", label: "Happy Clients" },
     { icon: <Clock />, value: "3+", label: "Awards Won" },
     { icon: <Globe />, value: "888+", label: "Task Completed" }
   ];
 
   // Technology/Partner logos
   const techLogos = [
-    { src: "/assets/images/brand-logos/adysunventures_android.png", alt: "Android" },
-    { src: "/assets/images/brand-logos/adysunventures_angular.png", alt: "Angular" },
-    { src: "/assets/images/brand-logos/adysunventures_aws.png", alt: "AWS" },
-    { src: "/assets/images/brand-logos/adysunventures_azure.png", alt: "Azure" },
+    { src: assetPath("/assets/images/brand-logos/adysunventures_android.png"), alt: "Android" },
+    { src: assetPath("/assets/images/brand-logos/adysunventures_angular.png"), alt: "Angular" },
+    { src: assetPath("/assets/images/brand-logos/adysunventures_aws.png"), alt: "AWS" },
+    { src: assetPath("/assets/images/brand-logos/adysunventures_azure.png"), alt: "Azure" },
   ];
 
   return (
-    <WebsiteLayout 
+    <WebsiteLayout
       title="Contact Us - Adysun Ventures"
       description="Get in touch with Adysun Ventures for IT solutions and business strategy consulting. Contact our Pune and Thane offices or reach us via email and phone."
     >
@@ -114,7 +115,7 @@ export default function ContactUsPage() {
                 ))}
               </div>
             </div>
-            
+
             <div>
               <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12">Why Choose Adysun Ventures?</h3>
               <div className="space-y-4">

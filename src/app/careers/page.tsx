@@ -7,23 +7,24 @@ import CounterSection from '@/components/website/layout/CounterSection';
 import ContactSection from '@/components/website/layout/ContactSection';
 import PartnerLogosSection from '@/components/website/layout/PartnerLogosSection';
 import CTASection from '@/components/website/layout/CTASection';
-import { 
-  RefreshCw, 
-  Brain, 
-  Building, 
-  MessageSquare, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Users, 
-  Target, 
-  Heart, 
-  Ship, 
-  TrendingUp, 
+import {
+  RefreshCw,
+  Brain,
+  Building,
+  MessageSquare,
+  Mail,
+  Phone,
+  MapPin,
+  Users,
+  Target,
+  Heart,
+  Ship,
+  TrendingUp,
   HandHeart,
   FileText,
   ArrowRight
 } from 'lucide-react';
+import { assetPath } from '@/lib/assetPath';
 
 export default function CareersPage() {
   // Company values and culture
@@ -78,15 +79,15 @@ export default function CareersPage() {
 
   // Statistics for CounterSection
   const statistics = [
-            { icon: <Users />, value: "150+", label: "Total Projects" },
-        { icon: <Heart />, value: "75+", label: "Happy Clients" },
+    { icon: <Users />, value: "150+", label: "Total Projects" },
+    { icon: <Heart />, value: "75+", label: "Happy Clients" },
     { icon: <FileText />, value: "3+", label: "Awards Won" },
     { icon: <ArrowRight />, value: "888+", label: "Task Completed" }
   ];
 
 
   return (
-    <WebsiteLayout 
+    <WebsiteLayout
       title="Careers - Let's shape the future with tech together!"
       description="Join Adysun Ventures and be part of a team that's passionate about innovation and creating solutions that make a difference. Explore career opportunities in software development, IT consulting, and technology innovation."
     >
@@ -141,7 +142,7 @@ export default function CareersPage() {
               Our Guiding Values
             </h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {companyValues.map((value, index) => (
               <BenefitCard
@@ -163,7 +164,7 @@ export default function CareersPage() {
               Who we hire: The Adysun Approach
             </h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {hiringApproach.map((approach, index) => (
               <div key={index} className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-orange-200">
@@ -239,7 +240,7 @@ export default function CareersPage() {
           { text: "Contact HR Team", href: "/contact-us", variant: "primary" },
           { text: "Learn More About Us", href: "/about-us", variant: "secondary" }
         ]}
-        backgroundImage="/assets/images/bg/bg13.jpg"
+        backgroundImage={assetPath("/assets/images/bg/bg13.jpg")}
       />
     </WebsiteLayout>
   );

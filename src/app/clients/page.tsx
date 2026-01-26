@@ -7,19 +7,20 @@ import ContactCard from '@/components/website/content/ContactCard';
 import ContactSection from '@/components/website/layout/ContactSection';
 import PartnerLogosSection from '@/components/website/layout/PartnerLogosSection';
 import CTASection from '@/components/website/layout/CTASection';
-import { 
-  BarChart3, 
-  Building, 
-  Truck, 
-  Factory, 
-  ShoppingCart, 
-  Shield, 
+import {
+  BarChart3,
+  Building,
+  Truck,
+  Factory,
+  ShoppingCart,
+  Shield,
   Lock,
   MapPin,
   Mail,
   Phone,
   ArrowRight
 } from 'lucide-react';
+import { assetPath } from '@/lib/assetPath';
 
 export default function ClientsPage() {
   const clientCategories = [
@@ -27,48 +28,48 @@ export default function ClientsPage() {
       title: "Transportation, Logistics & Supply Chain Management",
       icon: <Truck />,
       clients: [
-        { name: "Soltic Africa", image: "/assets/images/content/soltic-africa.jpg" },
-        { name: "ONS Fresh", image: "/assets/images/content/ons.jpg" },
-        { name: "Jayram Transport Corp.", image: "/assets/images/content/jayram-transport-corp.jpg" },
-        { name: "Dial-a-Meal", image: "/assets/images/content/dial-a-meal-1.jpg" },
-        { name: "AptolinkPRO", image: "/assets/images/content/apto-link-pro.jpg" },
-        { name: "Anand Road Lines", image: "/assets/images/content/anand-road-line.jpg" }
+        { name: "Soltic Africa", image: assetPath("/assets/images/content/soltic-africa.jpg") },
+        { name: "ONS Fresh", image: assetPath("/assets/images/content/ons.jpg") },
+        { name: "Jayram Transport Corp.", image: assetPath("/assets/images/content/jayram-transport-corp.jpg") },
+        { name: "Dial-a-Meal", image: assetPath("/assets/images/content/dial-a-meal-1.jpg") },
+        { name: "AptolinkPRO", image: assetPath("/assets/images/content/apto-link-pro.jpg") },
+        { name: "Anand Road Lines", image: assetPath("/assets/images/content/anand-road-line.jpg") }
       ]
     },
     {
       title: "Roads Infrastructure & Construction",
       icon: <Building />,
       clients: [
-        { name: "Ashoka", image: "/assets/images/content/ashoka-buildcon.jpg" },
-        { name: "Sanklecha", image: "/assets/images/content/sanklecha.jpg" },
-        { name: "Peak Infrastructure", image: "/assets/images/content/peak-infrastructure.jpg" },
-        { name: "Safeway", image: "/assets/images/content/safeway-concessions.jpg" },
-        { name: "Green Brier", image: "/assets/images/content/greenbrier-living.jpg" },
-        { name: "Fluid Robotics", image: "/assets/images/content/fluid-robotics.jpg" }
+        { name: "Ashoka", image: assetPath("/assets/images/content/ashoka-buildcon.jpg") },
+        { name: "Sanklecha", image: assetPath("/assets/images/content/sanklecha.jpg") },
+        { name: "Peak Infrastructure", image: assetPath("/assets/images/content/peak-infrastructure.jpg") },
+        { name: "Safeway", image: assetPath("/assets/images/content/safeway-concessions.jpg") },
+        { name: "Green Brier", image: assetPath("/assets/images/content/greenbrier-living.jpg") },
+        { name: "Fluid Robotics", image: assetPath("/assets/images/content/fluid-robotics.jpg") }
       ]
     },
     {
       title: "Manufacturing",
       icon: <Factory />,
       clients: [
-        { name: "Mahindra", image: "/assets/images/content/mahindra.jpg" },
-        { name: "ACMA", image: "/assets/images/content/acma.jpg" },
-        { name: "Kirloskar", image: "/assets/images/content/kirloskar.jpg" },
-        { name: "Baxy", image: "/assets/images/content/baxy.jpg" },
-        { name: "Jayashree", image: "/assets/images/content/jayram-transport-corp.jpg" },
-        { name: "Aryan", image: "/assets/images/content/aryan.jpg" }
+        { name: "Mahindra", image: assetPath("/assets/images/content/mahindra.jpg") },
+        { name: "ACMA", image: assetPath("/assets/images/content/acma.jpg") },
+        { name: "Kirloskar", image: assetPath("/assets/images/content/kirloskar.jpg") },
+        { name: "Baxy", image: assetPath("/assets/images/content/baxy.jpg") },
+        { name: "Jayashree", image: assetPath("/assets/images/content/jayram-transport-corp.jpg") },
+        { name: "Aryan", image: assetPath("/assets/images/content/aryan.jpg") }
       ]
     },
     {
       title: "E-Commerce",
       icon: <ShoppingCart />,
       clients: [
-        { name: "Wrestling", image: "/assets/images/content/wrestling.jpg" },
-        { name: "Aanknaad", image: "/assets/images/content/ankanaad.jpg" },
-        { name: "ManaTarang", image: "/assets/images/content/manatarang.jpg" },
-        { name: "Online Stationers", image: "/assets/images/content/online-stationers.jpg" },
-        { name: "Snovel", image: "/assets/images/content/snovel.jpg" },
-        { name: "Take Rent Pe", image: "/assets/images/content/take-rent-pe.jpg" }
+        { name: "Wrestling", image: assetPath("/assets/images/content/wrestling.jpg") },
+        { name: "Aanknaad", image: assetPath("/assets/images/content/ankanaad.jpg") },
+        { name: "ManaTarang", image: assetPath("/assets/images/content/manatarang.jpg") },
+        { name: "Online Stationers", image: assetPath("/assets/images/content/online-stationers.jpg") },
+        { name: "Snovel", image: assetPath("/assets/images/content/snovel.jpg") },
+        { name: "Take Rent Pe", image: assetPath("/assets/images/content/take-rent-pe.jpg") }
       ]
     }
   ];
@@ -135,15 +136,15 @@ export default function ClientsPage() {
 
   // Statistics for CounterSection
   const statistics = [
-            { icon: <BarChart3 />, value: "150+", label: "Total Projects" },
-        { icon: <Building />, value: "75+", label: "Happy Clients" },
+    { icon: <BarChart3 />, value: "150+", label: "Total Projects" },
+    { icon: <Building />, value: "75+", label: "Happy Clients" },
     { icon: <Truck />, value: "3+", label: "Awards Won" },
     { icon: <ShoppingCart />, value: "888+", label: "Task Completed" }
   ];
 
 
   return (
-    <WebsiteLayout 
+    <WebsiteLayout
       title="Our Clients - Adysun Ventures"
       description="Discover our diverse client portfolio across transportation, logistics, construction, manufacturing, and e-commerce industries. We've helped businesses transform their operations with innovative IT solutions."
     >
@@ -171,7 +172,7 @@ export default function ClientsPage() {
                   {category.title}
                 </h2>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {category.clients.map((client, clientIndex) => (
                   <div key={clientIndex} className="text-center group">
@@ -206,7 +207,7 @@ export default function ClientsPage() {
               Discover how we've helped businesses across industries achieve digital transformation
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {successStories.map((story, index) => (
               <div key={index} className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 border border-orange-200 hover:border-orange-300 hover:-translate-y-1">
@@ -234,7 +235,7 @@ export default function ClientsPage() {
               Our expertise spans across multiple industries, delivering tailored solutions for unique business challenges
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {industries.map((industry, index) => (
               <div key={index} className="text-center group">
@@ -271,7 +272,7 @@ export default function ClientsPage() {
           { text: "Get Started Today", href: "/contact-us", variant: "primary" },
           { text: "Explore Our Services", href: "/services", variant: "secondary" }
         ]}
-        backgroundImage="/assets/images/content/clientBanner.jpg"
+        backgroundImage={assetPath("/assets/images/content/clientBanner.jpg")}
       />
     </WebsiteLayout>
   );

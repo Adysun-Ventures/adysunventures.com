@@ -16,10 +16,11 @@ import InteractiveProcessSteps from '@/components/website/layout/InteractiveProc
 import ContactSection from '@/components/website/layout/ContactSection';
 import FAQSection from '@/components/website/layout/FAQSection';
 import LogoLoop from '@/components/reactbits/LogoLoop';
+import { assetPath } from '@/lib/assetPath';
 
 export default function WebsiteHomePage() {
   return (
-    <WebsiteLayout 
+    <WebsiteLayout
       title="Adysun Ventures: Premium IT Solutions & Business Strategy Services"
       description="Leading IT solutions provider offering comprehensive technology services to meet your industry-specific business needs."
     >
@@ -29,7 +30,7 @@ export default function WebsiteHomePage() {
         subtitle="Adysun Ventures: Premium IT Solutions & Business Strategy Services"
         description="Adysun Ventures is a leading IT solutions provider, offering comprehensive technology services to meet your industry-specific business needs."
         variant="image"
-        backgroundImage="/assets/images/bg/hero-bg-video.mp4"
+        backgroundImage={assetPath('/assets/images/bg/hero-bg-video.mp4')}
         actions={[
           { text: "Our Services", href: "/services", variant: "primary" },
           { text: "Contact Us", href: "/contact-us", variant: "outline" }
@@ -45,7 +46,7 @@ export default function WebsiteHomePage() {
             variant="light"
             alignment="center"
           />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <FeatureCard
               icon={<PiggyBank />}
@@ -77,56 +78,56 @@ export default function WebsiteHomePage() {
             subtitle="Transforming businesses through innovative technology solutions and strategic consulting"
             alignment="center"
           />
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-                <div className="mb-4 flex items-center justify-between">
-                  <h3 className="text-xl font-bold text-gray-900">Business Strategy Consulting</h3>
-                  <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-700">Advisory</span>
-                </div>
-                <p className="text-gray-600 mb-4">
-                  Align technology with strategic objectives to maximize ROI and competitive advantage.
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start text-gray-800">
-                    <CheckCircle2 className="mr-3 h-5 w-5 text-orange-600" />
-                    <span>IT Strategic Planning</span>
-                  </li>
-                  <li className="flex items-start text-gray-800">
-                    <CheckCircle2 className="mr-3 h-5 w-5 text-orange-600" />
-                    <span>Digital Transformation Roadmaps</span>
-                  </li>
-                  <li className="flex items-start text-gray-800">
-                    <CheckCircle2 className="mr-3 h-5 w-5 text-orange-600" />
-                    <span>Technology Investment Advisory</span>
-                  </li>
-                </ul>
+              <div className="mb-4 flex items-center justify-between">
+                <h3 className="text-xl font-bold text-gray-900">Business Strategy Consulting</h3>
+                <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-700">Advisory</span>
               </div>
-              
-              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-                <div className="mb-4 flex items-center justify-between">
-                  <h3 className="text-xl font-bold text-gray-900">Advanced IT Solutions</h3>
-                  <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">Delivery</span>
-                </div>
-                <p className="text-gray-600 mb-4">
-                  Comprehensive technical solutions engineered for performance, resilience, and scale.
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start text-gray-800">
-                    <CheckCircle2 className="mr-3 h-5 w-5 text-orange-600" />
-                    <span>Custom Software Development</span>
-                  </li>
-                  <li className="flex items-start text-gray-800">
-                    <CheckCircle2 className="mr-3 h-5 w-5 text-orange-600" />
-                    <span>Cloud Migration &amp; Management</span>
-                  </li>
-                  <li className="flex items-start text-gray-800">
-                    <CheckCircle2 className="mr-3 h-5 w-5 text-orange-600" />
-                    <span>Cybersecurity Services</span>
-                  </li>
-                </ul>
+              <p className="text-gray-600 mb-4">
+                Align technology with strategic objectives to maximize ROI and competitive advantage.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start text-gray-800">
+                  <CheckCircle2 className="mr-3 h-5 w-5 text-orange-600" />
+                  <span>IT Strategic Planning</span>
+                </li>
+                <li className="flex items-start text-gray-800">
+                  <CheckCircle2 className="mr-3 h-5 w-5 text-orange-600" />
+                  <span>Digital Transformation Roadmaps</span>
+                </li>
+                <li className="flex items-start text-gray-800">
+                  <CheckCircle2 className="mr-3 h-5 w-5 text-orange-600" />
+                  <span>Technology Investment Advisory</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="mb-4 flex items-center justify-between">
+                <h3 className="text-xl font-bold text-gray-900">Advanced IT Solutions</h3>
+                <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">Delivery</span>
               </div>
-            
+              <p className="text-gray-600 mb-4">
+                Comprehensive technical solutions engineered for performance, resilience, and scale.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start text-gray-800">
+                  <CheckCircle2 className="mr-3 h-5 w-5 text-orange-600" />
+                  <span>Custom Software Development</span>
+                </li>
+                <li className="flex items-start text-gray-800">
+                  <CheckCircle2 className="mr-3 h-5 w-5 text-orange-600" />
+                  <span>Cloud Migration &amp; Management</span>
+                </li>
+                <li className="flex items-start text-gray-800">
+                  <CheckCircle2 className="mr-3 h-5 w-5 text-orange-600" />
+                  <span>Cybersecurity Services</span>
+                </li>
+              </ul>
+            </div>
+
           </div>
         </div>
       </section>
@@ -138,7 +139,7 @@ export default function WebsiteHomePage() {
             title="Why Choose Adysun Ventures for IT Services?"
             alignment="center"
           />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <FeatureCard
               icon={<Cog />}
@@ -168,9 +169,9 @@ export default function WebsiteHomePage() {
               Driving Success Through Strategic IT Solutions
             </h2>
           </div>
-          
+
           <InteractiveProcessSteps
-                steps={[
+            steps={[
               {
                 number: "01",
                 title: "Planning",
@@ -262,7 +263,7 @@ export default function WebsiteHomePage() {
             subtitle="Our IT solutions and business strategy services are tailored to the unique needs of various industries"
             alignment="center"
           />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <IndustryCard
               icon={<LineChart />}
@@ -289,10 +290,10 @@ export default function WebsiteHomePage() {
               bgColor="bg-orange-100"
             />
           </div>
-          
+
           <div className="text-center">
-            <a 
-              href="/industries" 
+            <a
+              href="/industries"
               className="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors"
             >
               Explore All Industries
@@ -311,7 +312,7 @@ export default function WebsiteHomePage() {
         actions={[
           { text: "Get in Touch", href: "/contact-us", variant: "secondary" }
         ]}
-        // className="mb-16"
+      // className="mb-16"
       />
 
       {/* Contact Section */}
@@ -321,8 +322,8 @@ export default function WebsiteHomePage() {
       <CounterSection
         className="mb-16"
         items={[
-                  { icon: <Users />, value: '150+', label: 'Total Projects' },
-        { icon: <Smile />, value: '75+', label: 'Happy Clients' },
+          { icon: <Users />, value: '150+', label: 'Total Projects' },
+          { icon: <Smile />, value: '75+', label: 'Happy Clients' },
           { icon: <Crown />, value: '3+', label: 'Awards Won' },
           { icon: <CheckSquare />, value: '888+', label: 'Task Completed' }
         ]}
@@ -338,23 +339,23 @@ export default function WebsiteHomePage() {
             speedSec={30}
             logos={[
               // Using adysunventures prefixed PNG files to fix 404 errors
-              
-              { src: '/assets/images/brand-logos/adysunventures_android.png', alt: 'Android' },
-              { src: '/assets/images/brand-logos/adysunventures_aws.png', alt: 'AWS' },
-              { src: '/assets/images/brand-logos/adysunventures_react.png', alt: 'React' },
-              { src: '/assets/images/brand-logos/adysunventures_nodejs.png', alt: 'Node.js' },
-              { src: '/assets/images/brand-logos/adysunventures_googlecloud.png', alt: 'Google Cloud' },
-              { src: '/assets/images/brand-logos/firebase.png', alt: 'Firebase' },
-              { src: '/assets/images/brand-logos/adysunventures_docker.png', alt: 'Docker' },
-              { src: '/assets/images/brand-logos/adysunventures_javascript.png', alt: 'JavaScript' },
-              { src: '/assets/images/brand-logos/adysunventures_python.png', alt: 'Python' },
-              { src: '/assets/images/brand-logos/adysunventures_java.png', alt: 'Java' },
-              { src: '/assets/images/brand-logos/adysunventures_php.png', alt: 'PHP' },
-              { src: '/assets/images/brand-logos/adysunventures_laravel.png', alt: 'Laravel' },
-              { src: '/assets/images/brand-logos/magento.png', alt: 'Magento' },
-              { src: '/assets/images/brand-logos/adysunventures_wordpress.png', alt: 'WordPress' },
-              { src: '/assets/images/brand-logos/adysunventures_powerbi.png', alt: 'Power BI' },
-              { src: '/assets/images/brand-logos/adysunventures_vuejs.png', alt: 'Vue.js' },
+
+              { src: assetPath('/assets/images/brand-logos/adysunventures_android.png'), alt: 'Android' },
+              { src: assetPath('/assets/images/brand-logos/adysunventures_aws.png'), alt: 'AWS' },
+              { src: assetPath('/assets/images/brand-logos/adysunventures_react.png'), alt: 'React' },
+              { src: assetPath('/assets/images/brand-logos/adysunventures_nodejs.png'), alt: 'Node.js' },
+              { src: assetPath('/assets/images/brand-logos/adysunventures_googlecloud.png'), alt: 'Google Cloud' },
+              { src: assetPath('/assets/images/brand-logos/firebase.png'), alt: 'Firebase' },
+              { src: assetPath('/assets/images/brand-logos/adysunventures_docker.png'), alt: 'Docker' },
+              { src: assetPath('/assets/images/brand-logos/adysunventures_javascript.png'), alt: 'JavaScript' },
+              { src: assetPath('/assets/images/brand-logos/adysunventures_python.png'), alt: 'Python' },
+              { src: assetPath('/assets/images/brand-logos/adysunventures_java.png'), alt: 'Java' },
+              { src: assetPath('/assets/images/brand-logos/adysunventures_php.png'), alt: 'PHP' },
+              { src: assetPath('/assets/images/brand-logos/adysunventures_laravel.png'), alt: 'Laravel' },
+              { src: assetPath('/assets/images/brand-logos/magento.png'), alt: 'Magento' },
+              { src: assetPath('/assets/images/brand-logos/adysunventures_wordpress.png'), alt: 'WordPress' },
+              { src: assetPath('/assets/images/brand-logos/adysunventures_powerbi.png'), alt: 'Power BI' },
+              { src: assetPath('/assets/images/brand-logos/adysunventures_vuejs.png'), alt: 'Vue.js' },
             ]}
           />
         </div>
