@@ -1,13 +1,16 @@
 import type { NextConfig } from "next";
 
+// GitHub Pages base path (repository name)
+const basePath = '/adysunventures.com';
+
 const nextConfig: NextConfig = {
   /* config options here */
-  // Remove static export for Netlify - it supports SSR
-  // output: 'export', // Required for GitHub Pages static deployment
-  // basePath: basePath, // For GitHub Pages deployment
-  // assetPrefix: basePath, // For GitHub Pages deployment
-  // trailingSlash: true, // Makes URLs end with a slash for better compatibility with static hosting
-  
+  // Static export configuration for GitHub Pages
+  output: 'export', // Required for GitHub Pages static deployment
+  basePath: basePath, // For GitHub Pages deployment - adds /adysunventures.com to all paths
+  assetPrefix: basePath, // For GitHub Pages deployment - ensures assets load from correct path
+  trailingSlash: true, // Makes URLs end with a slash for better compatibility with static hosting
+
   // Webpack configuration to handle chunking issues
   webpack: (config, { isServer }) => {
     // Optimize chunk splitting
@@ -34,10 +37,10 @@ const nextConfig: NextConfig = {
         },
       },
     };
-    
+
     return config;
   },
-  
+
   images: {
     domains: [
       'firebasestorage.googleapis.com',
@@ -46,7 +49,7 @@ const nextConfig: NextConfig = {
       'localhost',                      // For local development
       'employee-admin-c83e8.appspot.com', // Your specific Firebase Storage bucket
     ],
-    unoptimized: false, // Enable image optimization for Netlify
+    unoptimized: true, // Required for static export - Next.js image optimization not available
     remotePatterns: [
       {
         protocol: 'https',
@@ -54,7 +57,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  
+
   // Note: rewrites don't work with static exports, but we'll leave this commented for reference
   // when deploying to a platform that supports server-side functionality
   /* 
