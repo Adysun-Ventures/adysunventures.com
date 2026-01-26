@@ -4,13 +4,24 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FiUser, FiCalendar, FiClock, FiMenu, FiX, FiHome, FiFileText } from 'react-icons/fi';
-import { useAuth } from '@/context/AuthContext';
 import { useEmployeeSelfEmployment } from '@/hooks/useEmployees';
 
 const EmployeeSidebar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const { currentUserData } = useAuth();
+  const [currentUserData, setCurrentUserData] = useState<any>(null);
+
+  // Read current user data from localStorage (no auth context)
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('employeeData') || localStorage.getItem('adminData');
+      if (stored) {
+        setCurrentUserData(JSON.parse(stored));
+      }
+    } catch (e) {
+      setCurrentUserData(null);
+    }
+  }, []);
   
   // Fetch employment data to check if employee has employment
   const { data: employmentData = [], isLoading: employmentLoading } = useEmployeeSelfEmployment(

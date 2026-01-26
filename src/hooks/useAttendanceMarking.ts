@@ -1,12 +1,20 @@
 import { useEffect, useState } from 'react';
-import { useAuth } from '@/context/AuthContext';
 import { useTodayAttendance, useMarkAttendanceCheckIn, useMarkAttendanceCheckOut } from '@/hooks/useAttendance';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '@/firebase/config';
 import toast from 'react-hot-toast';
 
 export const useAttendanceMarking = () => {
-  const { currentUserData } = useAuth();
+  // Read current user data from localStorage instead of auth context
+  let currentUserData: any = null;
+  if (typeof window !== 'undefined') {
+    try {
+      const stored = localStorage.getItem('employeeData') || localStorage.getItem('adminData');
+      currentUserData = stored ? JSON.parse(stored) : null;
+    } catch {
+      currentUserData = null;
+    }
+  }
   const [employmentId, setEmploymentId] = useState<string | null>(null);
   const [currentTime, setCurrentTime] = useState(new Date());
 

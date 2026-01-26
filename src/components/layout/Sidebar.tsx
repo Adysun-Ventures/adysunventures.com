@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FiUsers, FiMenu, FiX, FiFile, FiHome } from 'react-icons/fi';
-import { useAuth } from '@/context/AuthContext';
 import { FiMail } from 'react-icons/fi';
 import { collection, query, where, getDocs, Timestamp } from 'firebase/firestore';
 import { db } from '@/firebase/config';
@@ -14,7 +13,16 @@ import { queryKeys } from '@/lib/queryKeys';
 const Sidebar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const { currentAdmin } = useAuth();
+  const [currentAdmin, setCurrentAdmin] = useState<any>(null);
+
+  useEffect(() => {
+    try {
+      const admin = localStorage.getItem('adminData');
+      if (admin) setCurrentAdmin(JSON.parse(admin));
+    } catch {
+      setCurrentAdmin(null);
+    }
+  }, []);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);

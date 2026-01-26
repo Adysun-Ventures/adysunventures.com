@@ -3,7 +3,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { FiLogOut, FiUser, FiChevronDown } from 'react-icons/fi';
 import Image from 'next/image';
-import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 
 interface HeaderProps {
@@ -11,7 +10,21 @@ interface HeaderProps {
 }
 
 const Header = ({ variant = 'protected' }: HeaderProps) => {
-  const { logout, currentAdmin, currentEmployee } = useAuth();
+  // Read user info from localStorage since we don't use AuthContext
+  const [currentAdmin, setCurrentAdmin] = useState<any>(null);
+  const [currentEmployee, setCurrentEmployee] = useState<any>(null);
+
+  useEffect(() => {
+    try {
+      const admin = localStorage.getItem('adminData');
+      const employee = localStorage.getItem('employeeData');
+      if (admin) setCurrentAdmin(JSON.parse(admin));
+      if (employee) setCurrentEmployee(JSON.parse(employee));
+    } catch (e) {
+      setCurrentAdmin(null);
+      setCurrentEmployee(null);
+    }
+  }, []);
   const router = useRouter();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -87,7 +100,13 @@ const Header = ({ variant = 'protected' }: HeaderProps) => {
 
   const handleLogout = async () => {
     try {
-      await logout();
+      // Clear local session data and redirect
+      localStorage.removeItem('adminSessionId');
+      localStorage.removeItem('adminData');
+      localStorage.removeItem('employeeSessionId');
+      localStorage.removeItem('employeeData');
+      document.cookie = 'adminSessionId=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+      document.cookie = 'employeeSessionId=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
       router.push('/login');
     } catch (error) {
       console.error('Error logging out:', error);
