@@ -2,20 +2,13 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import {
-  MapPin,
-  Mail,
-  Phone,
-  Clock,
-  Info,
-  ChevronRight,
-} from 'lucide-react';
+import { MapPin, Mail, ChevronRight } from 'lucide-react';
 import { GoogleMapsButton, GoogleSearchButton } from '../ui/HollowButton';
 import CompanyContactBar from './layout/CompanyContactBar';
 import { assetPath } from '@/lib/assetPath';
 
 export default function Footer() {
-  const pathname = usePathname();
+  const pathname = usePathname() || '';
 
   // Function to check if a link is active
   const isActive = (href: string) => {
@@ -104,12 +97,12 @@ export default function Footer() {
                       Careers
                     </Link>
                   </li>
-                  {/* <li>
-                  <Link href="/enquiry" className={getLinkClasses('/enquiry')}>
-                    <ChevronRight className={getIconClasses('/enquiry')} />
-                    Enquiry
-                  </Link>
-                </li> */}
+                  <li>
+                    <Link href="/enquiry" className={getLinkClasses('/enquiry')}>
+                      <ChevronRight className={getIconClasses('/enquiry')} />
+                      Enquiry
+                    </Link>
+                  </li>
                 </ul>
               </div>
               <div className="lg:col-span-1">
